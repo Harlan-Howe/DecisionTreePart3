@@ -9,8 +9,8 @@ from ConditionFile import NumericCondition
 from NodeFile import GenericNode, BranchNode, LeafNode
 
 MAX_DIVISIONS_PER_RANGE = 9
-MAX_DEPTH = 25
-MIN_ITEMS_PER_BRANCH_NODE = 3
+MAX_DEPTH = 10
+MIN_ITEMS_PER_BRANCH_NODE = 7
 VERBOSE = True
 
 class DecisionTree:
