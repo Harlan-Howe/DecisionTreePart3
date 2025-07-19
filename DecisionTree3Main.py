@@ -1,6 +1,6 @@
 import copy
 import random
-from typing import List, Tuple
+from typing import List, Tuple, Optional
 
 import cv2
 import numpy as np
@@ -100,7 +100,8 @@ if __name__ == "__main__":
     N_TESTING = 7500
     load_map_image()
     training_data, training_labels = generate_N_data(N=N_TRAINING, label_data = True)
-    training_map:np.ndarray = display_labeled_data(training_data)
+    training_map: Optional[np.ndarray] = None
+    training_map = display_labeled_data(training_data)
 
     # build the tree.
     tree = DecisionTree()
