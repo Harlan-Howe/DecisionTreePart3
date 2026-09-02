@@ -43,18 +43,18 @@ class DecisionTree:
         if isinstance(self.decision_tree_root, BranchNode):
             print(f"The root node of the tree is based on Condition: {BranchNode(self.decision_tree_root).my_condition}.")
 
-    def build_conditions_for_range(self, range: List[int]|Tuple[int, int, int, int]) -> List[NumericCondition]:
+    def build_conditions_for_range(self, range_to_divide: List[int]|Tuple[int, int, int, int]) -> List[NumericCondition]:
         """
-        builds a collection of "Condition" objects to split this range into up to MAX_DIVISIONS_PER_RANGE slices in each
+        builds a collection of "Condition" objects to split this range_to_divide into up to MAX_DIVISIONS_PER_RANGE slices in each
         of the x and y dimensions. The conditions should be evenly spaced within each direction with integer spacing. If
-        the range is too small to accommodate MAX_DIVISIONS_PER_RANGE conditions, then use as many conditions as will
+        the range_to_divide is too small to accommodate MAX_DIVISIONS_PER_RANGE conditions, then use as many conditions as will
         fit.
         Conditions should not include the max/min values in range.
-        :param range: (x_min, y_min, x_max, y_max) - max is assumed to be >= min.
-        :return: a single list of both x and y conditions for this range, as many as 2 * MAX_DIVISIONS_PER_RANGE.
+        :param range_to_divide: (x_min, y_min, x_max, y_max) - max is assumed to be >= min.
+        :return: a single list of both x and y conditions for this range_to_divide, as many as 2 * MAX_DIVISIONS_PER_RANGE.
         """
-        x_division_size = max(1, int((range[2] - range[0]) / (MAX_DIVISIONS_PER_RANGE)))
-        y_division_size = max(1, int((range[3] - range[1]) / (MAX_DIVISIONS_PER_RANGE)))
+        x_division_size = max(1, int((range_to_divide[2] - range_to_divide[0]) / (MAX_DIVISIONS_PER_RANGE)))
+        y_division_size = max(1, int((range_to_divide[3] - range_to_divide[1]) / (MAX_DIVISIONS_PER_RANGE)))
         conditions_out: List[NumericCondition] = []
 
         # TODO: write this method, generating a NumericCondition for each x or y condition, and appending it to
