@@ -41,7 +41,7 @@ class DecisionTree:
         end_time = time.perf_counter()
         print(f"Tree built in {(end_time-start_time):0.6f} seconds.")
         if isinstance(self.decision_tree_root, BranchNode):
-            print(f"The root node of the tree is based on Condition: {BranchNode(self.decision_tree_root).my_condition}.")
+            print(f"The root node of the tree is based on Condition: {self.decision_tree_root.my_condition}.")
 
     def build_conditions_for_range(self, range: List[int]|Tuple[int, int, int, int]) -> List[NumericCondition]:
         """
